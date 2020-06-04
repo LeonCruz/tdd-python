@@ -54,7 +54,9 @@ class NewVisitorTest(unittest.TestCase):
         # A página é atualizada novamente e agora mostra os dois itens em sua
         # lista
         self.check_for_row_in_list_table('1: Comprar penas de pavão')
-        self.check_for_row_in_list_table('2: Usar penas de pavão para fazer um fly')
+        self.check_for_row_in_list_table(
+            '2: Usar penas de pavão para fazer um fly'
+        )
 
         # Edith se pergunta se o site lembrará de sua lista. Então ela nota
         # que o site gerou um URL único para ela -- há um pequeno
