@@ -66,10 +66,10 @@ class NewVisitorTest(LiveServerTestCase):
 
         # A página é atualizada novamente e agora mostra os dois itens em sua
         # lista
+        self.wait_for_row_in_list_table('1: Comprar penas de pavão')
         self.wait_for_row_in_list_table(
             '2: Usar penas de pavão para fazer um fly'
         )
-        self.wait_for_row_in_list_table('1: Comprar penas de pavão')
 
         # Satisfeita ela volta a dormir
 
