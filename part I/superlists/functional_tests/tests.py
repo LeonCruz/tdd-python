@@ -113,6 +113,6 @@ class NewVisitorTest(LiveServerTestCase):
         # Novamente, não há nenhum sinal da lista de Edith
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Comprar penas de pavão', page_text)
-        self.assertIn('Comprar leite')
+        self.assertIn('Comprar leite', page_text)
 
         # Satisfeitos, ambos voltam a dormir
