@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 import time
 import unittest
 
@@ -9,7 +9,7 @@ import unittest
 MAX_WAIT = 10
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
 
@@ -29,7 +29,6 @@ class NewVisitorTest(LiveServerTestCase):
                 if time.time() - start_time > MAX_WAIT:
                     raise e
                 time.sleep(0.5)
-
 
     def test_can_start_a_list_for_one_user(self):
         # Edith ouvi falar de uma nova aplicação online interessante para
@@ -87,8 +86,8 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Agora um novo usuário, Francis, chega ao site.
 
-        ## Usamos uma nova sessão de navegador para garantir que nenhuma informação
-        ## de Edith está vindo de cookies etc
+        # Usamos uma nova sessão de navegador para garantir que nenhuma informação
+        # de Edith está vindo de cookies etc
         self.browser.quit()
         self.browser = webdriver.Firefox()
 
