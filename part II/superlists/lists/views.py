@@ -17,7 +17,7 @@ def view_list(request, list_id):
             item = Item(text=request.POST['item_text'], list=list_)
             item.full_clean()
             item.save()
-            return redirect(f'/lists/{list_.id}/')
+            return redirect(list_)
         except ValidationError:
             error = 'Você não pode ter um item vazio em uma lista'
 
@@ -36,4 +36,4 @@ def new_list(request):
         error = 'Você não pode ter um item vazio em uma lista'
         return render(request, 'home.html', {'error': error})
 
-    return redirect(f'/lists/{list_.id}/')
+    return redirect(list_)
