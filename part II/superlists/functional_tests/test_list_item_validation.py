@@ -1,6 +1,5 @@
 from .base import FunctionalTest
 from selenium.webdriver.common.keys import Keys
-from unittest import skip
 
 
 class ItemValidationTest(FunctionalTest):
@@ -32,12 +31,9 @@ class ItemValidationTest(FunctionalTest):
             self.browser.find_element_by_css_selector('.has-error').text,
             'Você não pode ter um item vazio em uma lista'
         ))
-        
+
         # E la pode corrigir isso preenchendo o item com um texto
         self.browser.find_element_by_id('id_new_item').send_keys('Fazer chá')
         self.browser.find_element_by_id('id_new_item').send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: Comprar leite')
         self.wait_for_row_in_list_table('2: Fazer chá')
-
-        
-
